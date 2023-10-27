@@ -1,0 +1,19 @@
+.gallery {
+  @apply bg-gray-100 border-l-2 border-gray-300 w-full overflow-y-auto;
+}
+
+.batchzone-cont {
+  @apply flex flex-col;
+}
+
+.zone {
+  @apply text-xl font-bold border-b-2 border-black px-2 py-2;
+}
+
+.thumbnail-cont {
+  @apply grid grid-cols-5 xl:grid-cols-8 gap-x-5 gap-y-5 p-3;
+}
+
+.thumbnail {
+  @apply border-4 cursor-pointer transform scale-125;
+}

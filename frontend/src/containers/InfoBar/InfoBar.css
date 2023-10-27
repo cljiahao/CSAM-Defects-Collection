@@ -1,0 +1,35 @@
+.infobar {
+  @apply flex border-b-2 border-gray-300 w-full bg-gray-100 gap-5 2xl:gap-16;
+}
+
+.info_list_cont {
+  @apply flex justify-between items-center w-full mx-3 2xl:mx-5 gap-3 2xl:gap-12 text-xs 2xl:text-sm;
+}
+
+.info_list {
+  @apply italic w-full;
+}
+
+.info_head {
+  @apply italic text-center w-full;
+}
+
+.info_desc {
+  @apply items-center text-center pt-1 pb-1;
+}
+
+.info_unit {
+  @apply float-right;
+}
+
+.button_cont {
+  @apply flex justify-between items-center w-fit h-12 2xl:h-14 gap-7 2xl:gap-16 my-1 2xl:my-2 mr-3 2xl:mr-5;
+}
+
+.label {
+  @apply flex justify-center items-center rounded-lg cursor-pointer w-32 2xl:w-36 h-full bg-gray-600 hover:bg-gray-500 text-center text-white text-base 2xl:text-lg;
+}
+
+.button {
+  @apply flex justify-center items-center rounded-lg cursor-pointer w-24 px-3 h-full bg-blue-300 hover:bg-blue-200;
+}

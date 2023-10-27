@@ -1,0 +1,19 @@
+fastapi                 # API (Backend to Frontend)              
+uvicorn                 
+
+SQLAlchemy              # Sql Engine
+requests                # HTTP Request
+python-dotenv           # Env File Reader
+
+python-multipart        # Form Data Usage
+pydantic[email]         # Email Checking
+passlib[bcrypt]         # Hashing
+python-jose             # Authentication
+
+pytest                  # For Testing
+
+JinJa2                  # Templating
+aiofiles                
+
+opencv-python           # Processing Images
+tensorflow              # AI Model

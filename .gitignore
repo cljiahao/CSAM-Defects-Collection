@@ -1,0 +1,8 @@
+__pycache__
+.env
+env
+csam_ai.db
+backend/images
+csam_img
+temp.jpg
+temp.png

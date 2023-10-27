@@ -1,0 +1,11 @@
+.App {
+  @apply flex justify-between w-screen h-screen max-h-screen m-0 p-0 top-0;
+}
+
+.App-main {
+  @apply flex flex-col w-[62%] h-full;
+}
+
+.App-side {
+  @apply flex w-[38%] h-full;
+}
