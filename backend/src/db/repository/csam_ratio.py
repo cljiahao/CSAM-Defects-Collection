@@ -72,10 +72,13 @@ def create_base_data(ratio: CreateBaseData, db: Session = Depends(get_db)):
     ratio = CSAM_RATIO(
         **ratio_dict, ng_ratio=str(ng_ratio), other_ratio=str(other_ratio)
     )
-    
-    db.add(ratio)
-    db.commit()
-    db.refresh(ratio)
+    try:
+        db.add(ratio)
+        db.commit()
+        db.refresh(ratio)
+        return False
+    except:
+        return True
 
     # To Send via HTTP (To REALTIMEDB)
     # file_path = create_csv(ratio, directory)
@@ -83,8 +86,6 @@ def create_base_data(ratio: CreateBaseData, db: Session = Depends(get_db)):
     # resp = requests.post(settings.REALTIMEDB, files=files)
     # print(f"fileSize: {int(resp.content)}")
     # if int(resp.content) == os.stat(file_path).st_size: os.remove(file_path)
-
-    return ratio
 
 
 def get_db_data(db: Session):

@@ -48,8 +48,18 @@ def predict_NG_chips(file: UploadFile = File(...), lot_no: str = Form(...), db: 
 
 @router.post("/save_images")
 def save_img(ratio: CreateBaseData, db: Session = Depends(get_db)):
-    ratio = create_base_data(ratio=ratio, db=db)
-    return ratio
+    
+    res = create_base_data(ratio=ratio, db=db)
+    if res: alert = {'title': 'Images Failed to Save!', 
+                     'text': 'Please Try Again', 
+                     'icon': 'error', 
+                     'confirmButtonText': 'Confirm'}
+    alert = {'title': 'Images Saved!', 
+             'text': 'Confirm to continue', 
+             'icon': 'success', 
+             'confirmButtonText': 'Confirm'}
+
+    return alert
 
 
 @router.get("/read_db")
