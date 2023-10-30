@@ -41,7 +41,7 @@ def predict_NG_chips(file: UploadFile = File(...), lot_no: str = Form(...), db: 
                 directory=save_dir,
                 chip_type=chip_type)
     
-    print(f"Total Time taken: {time.time()-start}")
+    print(f"Total Time taken: {round(time.time()-start,2)}")
 
     return res
 
