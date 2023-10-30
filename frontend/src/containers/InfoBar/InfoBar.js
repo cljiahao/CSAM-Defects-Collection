@@ -25,19 +25,19 @@ const InfoBar = ({ initialize, save }) => {
   } = useContext(AppContext);
 
   const errorHandling = async (res) => {
-    if (res.status === "404") {
+    if (res.status === 404) {
       setState({
         error: true,
         image: {
-          src: "Error/Error_Lot_Num.png",
-          alt: "Error_Lot_Num.png",
+          src: "error/error_lot_no.png",
+          alt: "Error_Lot_No.png",
         },
       });
       return false;
-    } else if (res.status === "400") {
+    } else if (res.status === 400) {
       setState({
         error: true,
-        image: { src: "Error/Error.png", alt: "Error.png" },
+        image: { src: "error/error.png", alt: "Error.png" },
       });
       return false;
     } else {
@@ -57,7 +57,7 @@ const InfoBar = ({ initialize, save }) => {
     if (file) {
       setState({
         ...state,
-        image: { src: "Error/Loading.gif", alt: "Loading.gif" },
+        image: { src: "error/loading.gif", alt: "Loading.gif" },
       });
       const res = await loadImage(file, data);
       if (res) {
