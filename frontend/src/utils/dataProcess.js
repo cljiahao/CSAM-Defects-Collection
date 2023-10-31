@@ -48,7 +48,7 @@ const dataProcess = (json, array, data, focus, info) => {
   info.no_of_chips = json.no_of_chips;
   info.no_of_ng = no_of_ng;
   info.no_of_others = no_of_others;
-  //   const ng_count = json.ng_count;
+  // info.no_of_pred = json.no_of_pred;
 
   if (
     data.plate_no.slice(0, 3)[0].toLowerCase() === "end" ||

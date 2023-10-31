@@ -45,6 +45,7 @@ const initialInfo = {
   no_of_batches: 0,
   no_of_ng: 0,
   no_of_others: 0,
+  // no_of_pred: 0,
 };
 const initialState = {
   error: false,
