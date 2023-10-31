@@ -8,10 +8,9 @@ import {
   initialState,
 } from "./ini";
 
-import saveData from "./utils/saveData";
 import { AppContext } from "./contexts/context";
 import { InfoBar, ImageHolder, Gallery } from "./containers";
-
+import saveData from "./utils/saveData";
 import changeColour from "./utils/changeColour";
 
 function App() {
@@ -43,6 +42,10 @@ function App() {
     if (!state.error && data.lot_no && Object.values(array).length > 0)
       saveData(array, data, info);
   };
+
+  // const insert_db = () => {
+  //   if (!state.error && data.lot_no) insertDB(array, data, info);
+  // };
 
   const highlight = (zone, key) => {
     const [array_dict, info_dict] = changeColour(zone, key, array, info);
