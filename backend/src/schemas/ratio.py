@@ -1,5 +1,6 @@
 from pydantic import BaseModel
 
+
 class CreateBaseData(BaseModel):
     lot_no: str
     plate_no: str

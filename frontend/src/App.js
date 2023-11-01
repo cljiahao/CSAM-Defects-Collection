@@ -14,11 +14,12 @@ import saveData from "./utils/saveData";
 import changeColour from "./utils/changeColour";
 
 function App() {
-  const [array, setArray] = useState(initialArray);
-  const [data, setData] = useState(initialData);
-  const [focus, setFocus] = useState(initialFocus);
-  const [info, setInfo] = useState(initialInfo);
-  const [state, setState] = useState(initialState);
+  // Deep copy / clone initial states to prevent overlapping
+  const [array, setArray] = useState(structuredClone(initialArray));
+  const [data, setData] = useState(structuredClone(initialData));
+  const [focus, setFocus] = useState(structuredClone(initialFocus));
+  const [info, setInfo] = useState(structuredClone(initialInfo));
+  const [state, setState] = useState(structuredClone(initialState));
 
   useEffect(() => {
     const load = () => {
@@ -30,16 +31,13 @@ function App() {
     };
   }, [array]);
 
-  const initialize = () => {
-    setArray(initialArray);
-    setData(initialData);
-    setFocus(initialFocus);
-    setInfo(initialInfo);
-    setState(initialState);
-  };
-
   const save = () => {
-    if (!state.error && data.lot_no && Object.values(array).length > 0)
+    if (
+      !state.error &&
+      data.lot_no &&
+      (Object.values(array.ng).length > 0 ||
+        Object.values(array.others).length > 0)
+    )
       saveData(array, data, info);
   };
 
@@ -79,7 +77,7 @@ function App() {
     >
       <div className="App">
         <main className="App-main">
-          <InfoBar initialize={initialize} save={save} />
+          <InfoBar save={save} />
           <ImageHolder highlight={highlight} />
         </main>
         <aside className="App-side">

@@ -7,6 +7,7 @@ from sqlalchemy import String
 
 from db.base_class import Base
 
+
 class CSAM_RATIO(Base):
     id = Column(Integer, primary_key=True, index=False)
     date = Column(DateTime, default=datetime.now)

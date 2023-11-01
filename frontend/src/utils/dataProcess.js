@@ -36,6 +36,8 @@ const dataProcess = (json, array, data, focus, info) => {
     ));
   });
   array.chips = chips;
+  array.ng = {};
+  array.others = {};
 
   data.plate_no = json.plate_no;
   data.directory = json.directory;
@@ -49,12 +51,6 @@ const dataProcess = (json, array, data, focus, info) => {
   info.no_of_ng = no_of_ng;
   info.no_of_others = no_of_others;
   // info.no_of_pred = json.no_of_pred;
-
-  if (
-    data.plate_no.slice(0, 3)[0].toLowerCase() === "end" ||
-    data.lot_no === null
-  )
-    data.lot_no = "";
 
   return [array, data, focus, info];
 };

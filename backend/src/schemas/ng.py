@@ -1,5 +1,6 @@
 from pydantic import BaseModel
 
+
 class ShowNG(BaseModel):
     plate_no: str
     chips: dict

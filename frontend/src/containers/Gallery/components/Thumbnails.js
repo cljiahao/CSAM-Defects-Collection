@@ -31,14 +31,14 @@ const Thumbnails = ({ highlight, zone }) => {
   // TODO: Caching of images
   // TODO: Lazing Loading or Pagination to improve speed
   return (
-    <div className="thumbnail-cont">
+    <div className="thumbnail-cont" key={zone}>
       {Object.keys(chips).map((key, i) => {
         return (
           <>
             {key in selected && (
               <img
+                key={key}
                 className="thumbnail"
-                key={i}
                 src={`${API}${data.directory.split("backend")[1]}/${
                   chips[key].class_type === "1"
                     ? "real"

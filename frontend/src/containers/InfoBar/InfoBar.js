@@ -1,7 +1,14 @@
 import React, { useContext } from "react";
 import { AppContext } from "../../contexts/context";
 import "./InfoBar.css";
-import { API } from "../../ini";
+import {
+  API,
+  initialArray,
+  initialData,
+  initialFocus,
+  initialInfo,
+  initialState,
+} from "../../ini";
 
 import dataProcess from "../../utils/dataProcess";
 import loadImage from "../../utils/loadImage";
@@ -10,7 +17,7 @@ import Info from "./components/Info";
 import Input from "./components/Input";
 import Button from "./components/Button";
 
-const InfoBar = ({ initialize, save }) => {
+const InfoBar = ({ save }) => {
   const {
     array,
     data,
@@ -23,6 +30,14 @@ const InfoBar = ({ initialize, save }) => {
     setInfo,
     setState,
   } = useContext(AppContext);
+
+  const initialize = () => {
+    setArray(initialArray);
+    setData(initialData);
+    setFocus(initialFocus);
+    setInfo(initialInfo);
+    setState(initialState);
+  };
 
   const errorHandling = async (res) => {
     if (res.status === 404) {
@@ -50,9 +65,16 @@ const InfoBar = ({ initialize, save }) => {
     e.preventDefault();
     initialize();
 
-    if (data.lot_no === "" || data.lot_no === null || state.error) {
+    if (
+      data.lot_no === "" ||
+      data.lot_no === null ||
+      (data.plate_no != null &&
+        data.plate_no.slice(0, 3).toLowerCase() === "end") ||
+      state.error
+    ) {
       data.lot_no = prompt("Please Scan or Input Lot Number.");
     }
+
     const file = e.target.files[0];
     if (file) {
       setState({
